@@ -1,0 +1,75 @@
+🎮 ZEPPELİN BETTING GAME - KEND İ BİLGİSAYARINIZA KURULUM
+
+Bu dosya size oyunu kendi bilgisayarınızda nasıl kuracağınızı adım adım anlatır.
+
+📋 NELER GEREKLİ:
+- Python 3.11 veya üzeri
+- PostgreSQL veritabanı
+- Internet bağlantısı
+
+🚀 HIZLI KURULUM:
+
+1) DOSYALARI İNDİRİN
+   - Bu projeyi ZIP olarak indirin
+   - Bilgisayarınızda bir klasöre çıkartın
+
+2) PYTHON KURULUMU
+   - Windows: https://www.python.org/downloads/ 
+   - macOS: Terminal'de "brew install python@3.11"
+   - Linux: "sudo apt-get install python3.11 python3.11-pip"
+
+3) POSTGRESQL KURULUMU  
+   - Windows: https://www.postgresql.org/download/windows/
+   - macOS: "brew install postgresql && brew services start postgresql"
+   - Linux: "sudo apt-get install postgresql postgresql-contrib"
+
+4) PAKET KURULUMU
+   Terminal/CMD açın, proje klasörüne gidin ve şunu çalıştırın:
+   
+   pip install flask flask-socketio flask-sqlalchemy gunicorn psycopg2-binary requests sqlalchemy trafilatura
+
+5) VERİTABANI KURULUMU
+   PostgreSQL'e bağlanın ve şunu çalıştırın:
+   
+   CREATE DATABASE zeppelin_game;
+   CREATE USER zeppelin_user WITH PASSWORD 'şifreniz123';
+   GRANT ALL PRIVILEGES ON DATABASE zeppelin_game TO zeppelin_user;
+
+6) AYAR DOSYASI
+   Proje klasörünüzde .env dosyası oluşturun:
+   
+   DATABASE_URL=postgresql://zeppelin_user:şifreniz123@localhost:5432/zeppelin_game
+   SESSION_SECRET=güvenli-gizli-anahtar-123
+   KICK_CLIENT_ID=kick-client-id-buraya
+   KICK_CLIENT_SECRET=kick-client-secret-buraya
+
+7) OYUNU ÇALIŞTIRIN
+   python run_local.py
+
+8) TARAYICIDA AÇIN
+   http://localhost:5000
+
+🎯 KOLAY YÖNTEM:
+Python kurulduktan sonra terminal'de:
+- python run_local.py
+Bu komut otomatik kontroller yapar ve eksikleri bildirir.
+
+📚 DETAYLI REHBERLER:
+- README.md: Genel bilgiler
+- INSTALLATION.md: Detaylı kurulum adımları
+- .env.example: Ayar dosyası örneği
+
+🆘 SORUN YAŞIYORSANIZ:
+1) PostgreSQL çalışıyor mu kontrol edin
+2) Python versiyonu 3.11+ olmalı
+3) Tüm paketler kurulmuş olmalı
+4) .env dosyasındaki bilgiler doğru olmalı
+
+💡 İPUCU:
+Kick API bilgileriniz yoksa oyun mock modda çalışır, yine de oynanabilir.
+
+🎮 Oyun hazır olduğunda:
+- Ana sayfa: localhost:5000
+- Admin paneli: localhost:5000/admin
+
+İyi oyunlar! 🚀
